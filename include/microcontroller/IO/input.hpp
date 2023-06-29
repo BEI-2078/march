@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "rom.hpp"
 
 //api of sorts to connect to sfml
 

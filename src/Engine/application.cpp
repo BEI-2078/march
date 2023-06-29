@@ -37,7 +37,7 @@ namespace Engine
 
 		//let the user control this variable later
 		//I can imagine it would be quite the headache
-		//keep waiting for the splash screen whe you have
+		//keep waiting for the splash screen when you have
 		//an exam tomorrow
 		bool splashStateEnable = true;
 		if(splashStateEnable)
@@ -80,13 +80,13 @@ namespace Engine
 			this->m_applicationData->m_states->getCurrentState()->Update(this->m_delta);
  
 			//Draw
-        		this->m_applicationData->m_window->clear(sf::Color::Black);
+        	this->m_applicationData->m_window->clear(sf::Color::Black);
 			this->m_applicationData->m_window->setView(this->m_applicationData->view);
 			this->m_applicationData->m_states->getCurrentState()->Draw();
 			this->m_applicationData->m_states->globalState()->Draw();
 
 			//Display
-        		this->m_applicationData->m_window->display();
+        	this->m_applicationData->m_window->display();
 			
 			this->m_delta = this->m_applicationData->m_clock.getElapsedTime();
 			//std::cout<<"FPS: "<<1.0/this->m_delta.asSeconds()<<"\n";

@@ -64,6 +64,7 @@ namespace Engine
 		}
 	}
 
+	//this is where global process are 
 	void inputManager::pollEvent(sf::RenderWindow& window, State& topState, State& globalState)
 	{
 		while(window.pollEvent(this->m_event))

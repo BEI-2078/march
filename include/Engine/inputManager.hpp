@@ -6,31 +6,31 @@
 
 namespace Engine
 {
-    class inputManager
-    {
-    public:
-        inputManager();
-        ~inputManager();
+	class inputManager
+	{
+		public:
+			inputManager();
+			~inputManager();
 
-        void getLetterBoxView(sf::View &view, int windowWidth, int windowHeight);
-        void switchFullScreen(sf::RenderWindow &window);
-        bool isHover(sf::Sprite &object, sf::RenderWindow &window, const sf::Vector2i &mousePosCache);
+			void getLetterBoxView(sf::View &view, int windowWidth, int windowHeight);
+			void switchFullScreen(sf::RenderWindow &window);
+			bool isHover(sf::Sprite &object, sf::RenderWindow &window, const sf::Vector2i &mousePosCache);
 
-	  void pollEvent(sf::RenderWindow& window, State& topState, State& globalState);
-	  sf::Event m_event;
-        void onEvent();
+			void pollEvent(sf::RenderWindow& window, State& topState, State& globalState);
+			sf::Event m_event;
+			//void onEvent();
 
-        // bool check(unsigned x, unsigned y, int dx, int dy);
-        /* void qolCheck(); */ //quality of life checks - implement this
-        //inline bool isKeyDown(KeyCode keyCode){return keyStates[keycode];}
-        //void dispatchEventToCallbacks(Even &e); 
-    private:
-	  //friend class State;
-        bool isFullScreen = 0;
+			// bool check(unsigned x, unsigned y, int dx, int dy);
+			/* void qolCheck(); */ //quality of life checks - implement this
+								   //inline bool isKeyDown(KeyCode keyCode){return keyStates[keycode];}
+								   //void dispatchEventToCallbacks(Even &e); 
+		private:
+			//friend class State;
+			bool isFullScreen = 0;
 
-        /*
-        bool onKeyPressed(KeyPressedEvent &e);
-        bool onKeyReleased(KeyReleasedEvent &e)
-        */
-    };
+			/*
+			   bool onKeyPressed(KeyPressedEvent &e);
+			   bool onKeyReleased(KeyReleasedEvent &e)
+			   */
+	};
 }

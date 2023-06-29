@@ -36,39 +36,11 @@ namespace Engine
 
 	void splashState::processInput() //converts user input into numbers mostly boolean
 	{
-		if(this->m_data->escAccumulator > transitionTime)
-		{
-			this->m_data->m_window->close();
-		}
-		if(this->m_data->m_inputs->m_event.type == sf::Event::Resized)
-		{
-			this->m_data->size.x = this->m_data->m_inputs->m_event.size.width;
-			this->m_data->size.y = this->m_data->m_inputs->m_event.size.height;
-			this->m_data->m_inputs->getLetterBoxView(this->m_data->view, this->m_data->size.x, this->m_data->size.y);
-		}
-		if(this->m_data->m_inputs->m_event.type == sf::Event::MouseMoved)
-		{
-			this->m_data->mousePosition.x = this->m_data->m_inputs->m_event.mouseMove.x;
-			this->m_data->mousePosition.y = this->m_data->m_inputs->m_event.mouseMove.y;
-		}
+		//put state specific processes here
 	}
 
 	void splashState::Update(const sf::Time& deltaTime)
 	{
-		//global window updates;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
-		{
-			this->m_data->m_isEscButtonPressed = true;
-			this->m_data->escAccumulator+= deltaTime.asSeconds();
-		}
-		else 
-		{
-			this->m_data->m_isEscButtonPressed = false; 
-			this->m_data->escAccumulator = 0;
-		}
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F4)) { this->m_data->m_isFullScreen = 1;} 
-
 		//state specific process;
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) 
 		{ 

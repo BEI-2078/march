@@ -3,8 +3,8 @@
 namespace Engine
 {
 	imguiUI::imguiUI(std::shared_ptr<applicationData> &data)
-	:
-		m_data(data)
+		:
+			m_data(data)
 	{
 	}
 
@@ -34,7 +34,7 @@ namespace Engine
 		io.FontDefault = fontAtlas->Fonts.back(); 
 		// Set the custom font as the default font
 		if (!io.Fonts->IsBuilt()) {
-    			if(!ImGui::SFML::UpdateFontTexture())
+			if(!ImGui::SFML::UpdateFontTexture())
 			{
 				this->m_data->m_muController->m_output->consoleWrite("ImGui done goofed up\n");
 			}
@@ -54,19 +54,19 @@ namespace Engine
 
 		//window styles; 
 		ImGuiStyle& style = ImGui::GetStyle();
-    		style.WindowPadding = ImVec2(10.0f, 17.0f);
-    		style.FramePadding = ImVec2(10.0f, 3.0f);
-    		style.CellPadding = ImVec2(10.0f, 2.0f);
-    		style.ItemSpacing = ImVec2(19.0f, 4.0f);
-    		style.WindowRounding = 12.0f;
-    		style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
-    		style.AntiAliasedLines = false;
+		style.WindowPadding = ImVec2(10.0f, 17.0f);
+		style.FramePadding = ImVec2(10.0f, 3.0f);
+		style.CellPadding = ImVec2(10.0f, 2.0f);
+		style.ItemSpacing = ImVec2(19.0f, 4.0f);
+		style.WindowRounding = 12.0f;
+		style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
+		style.AntiAliasedLines = false;
 
 		//any window with other than these features make no sense here
-    		windowFlags = ImGuiWindowFlags_NoResize | 
-				ImGuiWindowFlags_NoMove |
-				ImGuiWindowFlags_NoCollapse |
-				ImGuiWindowFlags_NoScrollbar;
+		windowFlags = ImGuiWindowFlags_NoResize | 
+			ImGuiWindowFlags_NoMove |
+			ImGuiWindowFlags_NoCollapse |
+			ImGuiWindowFlags_NoScrollbar;
 
 		//transitioning purposes; everything here is for a reason
 		//and that reason was found using my lifespan as a medium
@@ -85,20 +85,20 @@ namespace Engine
 			this->m_data->m_window->close();
 		}
 		if(this->m_data->m_inputs->m_event.type == sf::Event::Resized)
-            {
-                this->m_data->size.x = this->m_data->m_inputs->m_event.size.width;
-                this->m_data->size.y = this->m_data->m_inputs->m_event.size.height;
-                this->m_data->m_inputs->getLetterBoxView(this->m_data->view, this->m_data->size.x, this->m_data->size.y);
-            }
-            //move and click; not click and move
-            if(this->m_data->m_inputs->m_event.type == sf::Event::MouseMoved)
+		{
+			this->m_data->size.x = this->m_data->m_inputs->m_event.size.width;
+			this->m_data->size.y = this->m_data->m_inputs->m_event.size.height;
+			this->m_data->m_inputs->getLetterBoxView(this->m_data->view, this->m_data->size.x, this->m_data->size.y);
+		}
+		//move and click; not click and move
+		if(this->m_data->m_inputs->m_event.type == sf::Event::MouseMoved)
 		{
 			this->m_data->mousePosition.x = this->m_data->m_inputs->m_event.mouseMove.x;
 			this->m_data->mousePosition.y = this->m_data->m_inputs->m_event.mouseMove.y;
 		}
 
 	}
-	
+
 	void imguiUI::Update(const sf::Time& deltaTime)
 	{
 		//global SFML window updates;
@@ -113,7 +113,7 @@ namespace Engine
 			this->m_data->escAccumulator = 0;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F4)) { this->m_data->m_isFullScreen = 1;} 
-		
+
 		//ImGui's stuff
 		//all immediate mode stuff and their consequences are updated here
 		//just list them as you please
