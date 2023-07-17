@@ -94,7 +94,7 @@ namespace microprocessor
 	{
 		systemBus::controlBus::clockCycleCounter++;  
 		if(activeCycle == opcodeFetch || activeCycle == memoryRead) memoryReadSignals();
-		if(activeCycle == aluINR) aluINRSignals();
-		if(activeCycle == aluDCR) aluDCRSignals();
+		else if(activeCycle == aluINR) aluINRSignals();
+		else if(activeCycle == aluDCR) aluDCRSignals();
 	}
 }

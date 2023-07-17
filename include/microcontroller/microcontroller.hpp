@@ -47,10 +47,6 @@ namespace microcontroller
 /*
 			//INPUT PROGRAM; 
 			m_ram->dmaInput(startingAddress, 0x3c); //INR A
-			m_ram->dmaInput(startingAddress, 0x3c); //INR A
-			m_ram->dmaInput(startingAddress, 0x3c); //INR A
-			m_ram->dmaInput(startingAddress, 0x3c); //INR A
-			m_ram->dmaInput(startingAddress, 0x3c); //INR A
 			m_ram->dmaInput(startingAddress + 4, 0x76); //HLT
 */
 
@@ -71,14 +67,13 @@ namespace microcontroller
 					m_atat5->m_timingAndControl->clockFallingEdge(tem);
 		
 					//extra stuff because I'm not working with wires here
-					//commands equivalent to transmission of signal using wires
+					//so commands equivalent to transmission of signal using wires
 					m_atat5->m_registers->asyncUpdate();
 					systemBus::dataAddressBus::asyncUpdate();
 					
 					m_ram->clockFallingEdge();
 
 					systemBus::dataAddressBus::asyncUpdate();
-					
 				}
 				//std::cout<<"Program Counter: "<<this->m_atat5->m_registers->m_programCounter<<"\n";
 				this->m_atat5->m_registers->instructionRegister = microprocessor::internalBus::dataBus;
